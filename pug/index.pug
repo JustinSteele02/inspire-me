@@ -1,0 +1,60 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Inspire.me
+    link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='css/style.css')
+  body
+    .wrapper.centered
+      .section#input-section
+        textarea#quote-input(name='quote-input', placeholder='Enter Your Quote')
+        textarea#author-input(name='author-input', placeholder='Quote Author')
+        button#custom-quote Update Quote
+        button#random-quote Get Random Quote
+        a#twitter-btn Tweet Text
+        button#save-img Download Image
+      .section#quote-section
+        #quote-div
+          #quote Type a custom quote and author into the text boxes to the left, or get a random famous quote.
+          #author - Sample Author
+      .section
+        ul#main-list
+          li Font
+            i.fa.fa-caret-right
+          .panel
+            ul#font-list.sub-list
+              each val in ['Aller Regular', 'Chunkfive Roman', 'Delicious Italic', 'Fontin Regular', 'Prociono Regular']
+                li(style='font-family: ' + val)= val
+                hr
+          li Font Size
+            i.fa.fa-caret-right
+          .panel
+            ul#font-size.sub-list
+              each val in [26, 28, 30, 32, 34, 36, 38, 40]
+                li(style='font-size: ' + val + 'px')= val
+                hr
+          li Font Color
+            i.fa.fa-caret-right
+          .panel#font-color
+            each val in ['white', '#009FD4', '#D47500', '#FFCC66', '#f00', '#BF6EE0', '#E73C70', '#00AA55', 'black']
+              div.color-block(style='background-color: ' + val)
+          li Background
+            i.fa.fa-caret-right
+          .panel#bg-settings
+            #bg-color
+              p Color
+              hr
+              each val in ['white', '#009FD4', '#D47500', '#FFCC66', '#f00', '#BF6EE0', '#E73C70', '#00AA55', 'black']
+                div.color-block(style='background-color: ' + val)
+            #bg-image
+              p Image
+              hr
+              each val in ['cabin.jpg', 'beach.jpg', 'mountains.jpg', 'tracks.jpg']
+                div.img-block(style='background-image: url(./img/' + val + ')')
+          div
+
+    script(src='https://code.jquery.com/jquery-3.1.0.min.js', integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js', type='text/javascript')
+    script(src='js/main.js', type='text/javascript')
